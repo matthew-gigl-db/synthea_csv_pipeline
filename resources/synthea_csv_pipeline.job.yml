@@ -26,7 +26,7 @@ resources:
                 notebook_path: ../src/create-or-refresh-bronze.ipynb
                 base_parameters:
                   table_name: "{{input}}"
-            warehouse_id: ${var.warehouse_id}
+                warehouse_id: ${var.warehouse_id}
         
         # - task_key: refresh_pipeline
         #   depends_on:

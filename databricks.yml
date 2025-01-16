@@ -46,7 +46,7 @@ variables:
   catalog: 
     description: The name of the catalog to use for the workflow.  This should match the catalog, schema, and volume path where the Synthea CSV "landing" volume was created using synthea-on-dbx.  
     default: main
-  schema_name:
+  schema:
     description: The schema that contains the landing volume of subfolders for each CSV "resource type" that will be autoloaded to bronze and silver.  
     default: synthea
   full_refresh:

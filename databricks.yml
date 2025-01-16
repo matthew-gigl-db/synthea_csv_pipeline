@@ -16,6 +16,8 @@ targets:
     default: true
     workspace:
       host: https://adb-984752964297111.11.azuredatabricks.net
+    variables:
+      warehouse_id: d1184b8c2a8a87eb
 
   prod:
     mode: production
@@ -28,3 +30,8 @@ targets:
         level: CAN_MANAGE
     run_as:
       user_name: matthew.giglia@databricks.com
+
+variables:
+  warehouse_id:
+    description: The Databricks Serverless SQL Warehouse ID that SQL scoped notebook or query tasks may be executed against in the workflow.  
+    default: d1184b8c2a8a87eb

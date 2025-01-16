@@ -15,22 +15,22 @@ resources:
           - matthew.giglia@databricks.com
 
       tasks:
-        - task_key: notebook_task
-          job_cluster_key: job_cluster
+        - task_key: create_or_refresh_bronze
           notebook_task:
-            notebook_path: ../src/notebook.ipynb
+            notebook_path: ../src/create-or-refresh-bronze.ipynb
+          warehouse_id: ${var.warehouse_id}
         
-        - task_key: refresh_pipeline
-          depends_on:
-            - task_key: notebook_task
-          pipeline_task:
-            pipeline_id: ${resources.pipelines.synthea_csv_pipeline_pipeline.id}
+        # - task_key: refresh_pipeline
+        #   depends_on:
+        #     - task_key: notebook_task
+        #   pipeline_task:
+        #     pipeline_id: ${resources.pipelines.synthea_csv_pipeline_pipeline.id}
         
-      job_clusters:
-        - job_cluster_key: job_cluster
-          new_cluster:
-            spark_version: 15.4.x-scala2.12
-            node_type_id: Standard_D3_v2
-            autoscale:
-                min_workers: 1
-                max_workers: 4
+      # job_clusters:
+      #   - job_cluster_key: job_cluster
+      #     new_cluster:
+      #       spark_version: 15.4.x-scala2.12
+      #       node_type_id: Standard_D3_v2
+      #       autoscale:
+      #           min_workers: 1
+      #           max_workers: 4

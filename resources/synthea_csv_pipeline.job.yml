@@ -16,9 +16,17 @@ resources:
 
       tasks:
         - task_key: create_or_refresh_bronze
-          notebook_task:
-            notebook_path: ../src/create-or-refresh-bronze.ipynb
-          warehouse_id: ${var.warehouse_id}
+          description: Create a streaming key value pair style table for each streaming autoloaded resource of CSV files.    
+          for_each_task:
+            inputs: ${var.resources}
+            concurrency: 25
+            task:
+              task_key: create_or_refresh_bronze_iteration
+              notebook_task:
+                notebook_path: ../src/create-or-refresh-bronze.ipynb
+                base_parameters:
+                  table_name: "{{input}}"
+            warehouse_id: ${var.warehouse_id}
         
         # - task_key: refresh_pipeline
         #   depends_on:

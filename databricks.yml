@@ -54,4 +54,4 @@ variables:
     default: false
   resources: 
     description: The list of "fhir resources" that have been flattened to CSV files for ingestion into a corresponding bronze and silver table using streaming DLT and autoloader.  
-    default: "'allergies', 'careplans', 'claims', 'claims_transactions', 'conditions', 'devices', 'encounters', 'imaging_studies', 'immunizations', 'medications', 'observations', 'orgnizations', 'patients', 'payer_transitions', 'payers', 'procedures', 'providers', 'supplies'"
+    default: ['allergies', 'careplans', 'claims', 'claims_transactions', 'conditions', 'devices', 'encounters', 'imaging_studies', 'immunizations', 'medications', 'observations', 'orgnizations', 'patients', 'payer_transitions', 'payers', 'procedures', 'providers', 'supplies']
